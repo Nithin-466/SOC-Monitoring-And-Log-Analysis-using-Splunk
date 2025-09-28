@@ -17,8 +17,11 @@ The goal is to detect suspicious activity and visualize attack trends through da
 
 **1. Top Suspicious IPs**
 index="main"(sourcetype="Auth_task" OR sourcetype="accesslogs" OR source="wireshark.csv" OR sourcetype="firewalllogs") 
+
 | stats count by src_ip 
+
 | sort - count 
+
 | head 10
 
 <img width="1910" height="911" alt="Screenshot 2025-09-26 084033" src="https://github.com/user-attachments/assets/50339754-9b29-4592-a841-2199262b1b9c" />
@@ -27,8 +30,11 @@ index="main"(sourcetype="Auth_task" OR sourcetype="accesslogs" OR source="wiresh
 **2. Most Targeted Ports**
 
 index="main"(source="wireshark.csv" OR sourcetype="firewalllogs") 
+
 | stats count by dst_port 
+
 | sort - count 
+
 | head 10
 
 <img width="1916" height="906" alt="Screenshot 2025-09-26 084207" src="https://github.com/user-attachments/assets/785729ac-83be-4d7f-881a-5b9dd20cf937" />
@@ -37,8 +43,11 @@ index="main"(source="wireshark.csv" OR sourcetype="firewalllogs")
 **3. Top Attack Types**
 
 index="main"(sourcetype="Auth_task" OR sourcetype="accesslogs" OR sourcetype="firewalllogs") 
+
 | stats count by msg 
-| sort - count 
+
+| sort - count
+
 | head 10
 
 <img width="1909" height="911" alt="Screenshot 2025-09-26 084705" src="https://github.com/user-attachments/assets/a80d8515-cef5-404e-8c8c-6d06efb64d0f" />
