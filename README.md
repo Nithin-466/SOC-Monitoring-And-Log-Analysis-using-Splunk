@@ -1,10 +1,12 @@
 # SOC-Monitoring-And-Log-Analysis-using-Splunk
 
 ## Project Overview
+
 This project demonstrates how to analyze logs from multiple sources (Auth logs, Access logs, Wireshark logs, and Firewall logs) using **Splunk**.  
 The goal is to detect suspicious activity and visualize attack trends through dashboards.
 
 ## Tools & Data Sources
+
 - Splunk Enterprise / Cloud
 - Logs:
   - `Auth_task` – Authentication logs
@@ -16,6 +18,7 @@ The goal is to detect suspicious activity and visualize attack trends through da
 ## SPL Queries
 
 **1. Top Suspicious IPs**
+
 index="main"(sourcetype="Auth_task" OR sourcetype="accesslogs" OR source="wireshark.csv" OR sourcetype="firewalllogs") 
 
 | stats count by src_ip 
